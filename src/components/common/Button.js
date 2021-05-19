@@ -19,5 +19,5 @@ const Button = styled.button`
     }
 `;
 
-export default Button;
-// export {Button};
+// export default Button;
+export {Button};
