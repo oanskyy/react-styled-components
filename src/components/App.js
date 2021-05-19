@@ -22,7 +22,8 @@ function App() {
       
     </h1>
     <h2>button</h2>
-    <Button>test</Button>
+    <Button>1st</Button>
+    <Button secondary>2nd</Button>
     </div>
   );
 }
