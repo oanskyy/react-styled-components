@@ -1,17 +1,33 @@
 import React from 'react'
 // import {Button} from 'components/common'
-import Button from 'components/common/Button'
+import {createGlobalStyle} from 'styled-components'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Login from 'components/pages/Login'
+import Home from 'components/pages/Home'
+
+const GlobalStyle = createGlobalStyle`
+  body{ 
+    /* display: flex; 
+    justify-content: center; */
+    background: #fff; 
+    min-height: 100vh;
+    margin: 0; 
+    color: black; 
+    font-family: 'Kaushan Script'
+  }
+`
 
 function App() {
   return (
     <div>
-    <h1>
-      App
-      
-    </h1>
-    <h2>button</h2>
-    <Button>test</Button>
-    </div>
+      <GlobalStyle />
+      <BrowserRouter>
+        <Switch> 
+          <Route path="/"><Home/></Route>
+          <Route path="/login"><Login/></Route>
+        </Switch>
+      </BrowserRouter>
+    </ div>
   );
 }
 
