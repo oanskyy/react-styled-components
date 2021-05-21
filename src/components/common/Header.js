@@ -1,6 +1,6 @@
 import React from 'react' 
 import styled from 'styled-components'
-import {Link as ReactRouterDomLink} from 'react-router-dom' 
+import {Link as ReactRouterDomLink, useLocation } from 'react-router-dom' 
 
 const HeaderWrapper = styled.header`
     height: 60px; 
@@ -24,27 +24,36 @@ const Menu = styled.nav`
     left: initial; 
     top: initial;
 `
-const Link = ({isActive, children, ...props}) => { 
-    return ( 
-        <ReactRouterDomLink {...props}> 
+const Link = ({isActive, children, ...props}) => {
+    return (
+        <ReactRouterDomLink {...props}>
             {children}
         </ReactRouterDomLink>
-    )
-}
+    );
+};
+
 
 const StyledLink = styled(Link)`
     padding: 4px 8px;
-    display: block; 
-    text-align: center; 
-    box-sizing:
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    margin: auto 0;
+    font-weight: ${p => p.isActive ? 'bold' : 'normal'};
+    color: ${p => p.theme.bodyFontColor};
 `
 
+
 export function Header(){ 
+    const {pathname} = useLocation(); 
+
+
+
     return ( 
         <HeaderWrapper>
             <Menu>
-                <StyledLink to="/login">Login</StyledLink>
-                <StyledLink to="/"> Home </StyledLink>
+                <StyledLink to="/login" isActive={pathname === '/login'}>Login</StyledLink>
+                <StyledLink to="/" isActive={pathname === '/'}> Home </StyledLink>
             </Menu>
         </HeaderWrapper>
     )
