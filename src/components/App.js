@@ -1,10 +1,14 @@
 import React from 'react'
-import {Button} from 'components/common'
+// import {Button} from 'components/common'
 import {createGlobalStyle} from 'styled-components'
-// import Button from 'components/common/Button'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Login from 'components/pages/Login'
+import Home from 'components/pages/Home'
 
 const GlobalStyle = createGlobalStyle`
   body{ 
+    /* display: flex; 
+    justify-content: center; */
     background: #fff; 
     min-height: 100vh;
     margin: 0; 
@@ -17,14 +21,13 @@ function App() {
   return (
     <div>
       <GlobalStyle />
-    <h1>
-      App
-      
-    </h1>
-    <h2>button</h2>
-    <Button>1st</Button>
-    <Button secondary>2nd</Button>
-    </div>
+      <BrowserRouter>
+        <Switch> 
+          <Route path="/"><Home/></Route>
+          <Route path="/login"><Login/></Route>
+        </Switch>
+      </BrowserRouter>
+    </ div>
   );
 }
 
