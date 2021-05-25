@@ -1,4 +1,4 @@
-import React from 'react' 
+import React, {useState} from 'react' 
 import styled from 'styled-components'
 import {Link as ReactRouterDomLink, useLocation } from 'react-router-dom' 
 
@@ -15,7 +15,7 @@ const HeaderWrapper = styled.header`
 `
 
 const Menu = styled.nav`
-    display: block; 
+    display: ${p => p.open ? 'block' : 'none'};
     font-family: 'Open Sans'; 
     position: absolute; 
     width: 100%; 
@@ -62,29 +62,34 @@ const MobileMenuIcon = styled.div`
     width: 25px; 
     min-width: 25px; 
     padding: 5px; 
-    
+
     >div{ 
         height: 3px; 
         background: black; 
         margin: 5px 0;
         width: 100%; 
     }
+
+    @media(min-width: 768px) { 
+        display: none;
+    }
 `
 
 
 export function Header(){ 
     const {pathname} = useLocation(); 
-
+    const [menuOpen, setMenuOpen] = useState(false); 
+    // we want the menu to be closed as default state
 
 
     return ( 
         <HeaderWrapper>
-            <MobileMenuIcon>
+            <MobileMenuIcon onClick={() => setMenuOpen(s => !s)}>
                 <div />
                 <div />
                 <div />
             </MobileMenuIcon>
-            <Menu>
+            <Menu open={menuOpen}>
                 <StyledLink to="/login" isActive={pathname === '/login'}>Login</StyledLink>
                 <StyledLink to="/" isActive={pathname === '/'}> Home </StyledLink>
             </Menu>
