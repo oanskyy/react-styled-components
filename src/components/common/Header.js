@@ -10,19 +10,32 @@ const HeaderWrapper = styled.header`
     position: fixed; 
     top: 0; 
     padding: 0 16px; 
-    background-color: #eee;
+    background-image: linear-gradient(to right, #f8049c, #fdd54f);
+    border-bottom: 3px solid #fdd54f;
 `
 
 const Menu = styled.nav`
-    display: flex; 
-    position: relative; 
-    width: initial; 
-    border-bottom: none; 
-    margin: auto 0 auto auto; 
+    display: block; 
     font-family: 'Open Sans'; 
-    background: none; 
-    left: initial; 
-    top: initial;
+    position: absolute; 
+    width: 100%; 
+    top: 60px; 
+    left: 0; 
+    padding: 8px; 
+    box-sizing: border-box; 
+    border-bottom: 3px solid #fdd54f;
+    background: #fff;
+
+    @media(min-width: 768px) { 
+        display: flex; 
+        background: none; 
+        left: initial; 
+        top: initial;
+        position: relative; 
+        width: initial; 
+        border-bottom: none; 
+        margin: auto 0 auto auto; 
+    }
 `
 const Link = ({isActive, children, ...props}) => {
     return (
@@ -40,7 +53,8 @@ const StyledLink = styled(Link)`
     box-sizing: border-box;
     margin: auto 0;
     font-weight: ${p => p.isActive ? 'bold' : 'normal'};
-    color: ${p => p.theme.bodyFontColor};
+    /* color: ${p => p.theme.bodyFontColor}; */
+    color: black;
 `
 
 
