@@ -21,8 +21,10 @@ function App() {
       <GlobalStyle />
       <BrowserRouter>
         <Switch> 
-          <Route path="/"><Home /></Route>
-          <Route path="/login"><Login /></Route>
+          <Route path="/"><Home/></Route>
+        </Switch>
+        <Switch>
+          <Route path="/login"><Login/></Route>
         </Switch>
       </BrowserRouter>
     </ div>
