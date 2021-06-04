@@ -38,7 +38,6 @@ export default function Login() {
                     value={formFields.password}
                     onChange={handleInputChange} 
                     name="password" 
-                    type='password'
                     placeholder="Password" 
                 />
             </Form>
