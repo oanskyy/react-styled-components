@@ -1,5 +1,5 @@
 import React from 'react'
-import {createGlobalStyle} from 'styled-components'
+import {createGlobalStyle, ThemeProvider} from 'styled-components'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 import Home from 'components/pages/Home'
@@ -15,9 +15,11 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+const theme = {}
+
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <BrowserRouter>
         <Switch> 
@@ -25,7 +27,7 @@ function App() {
           <Route path="/login"><Login /></Route>
         </Switch>
       </BrowserRouter>
-    </ div>
+    </ ThemeProvider>
   );
 }
 
