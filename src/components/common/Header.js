@@ -11,14 +11,15 @@ const HeaderWrapper = styled.header`
     position: fixed; 
     top: 0; 
     padding: 0 16px; 
-    background-color: #eee;
+    background-image: linear-gradient(to right, ${p => p.theme.primaryColor}, ${p => p.theme.secondaryColor});
+    border-bottom: 3px solid ${p => p.theme.secondaryColor};
 `
 
 const Menu = styled.nav`
     display: ${p => p.open ? 'block' : 'none'}; 
     position: relative; 
     width: initial; 
-    border-bottom: none; 
+    border-bottom: 3px solid ${p => p.theme.secondaryColor}; 
     margin: auto 0 auto auto; 
     font-family: 'Open Sans'; 
     background: none; 

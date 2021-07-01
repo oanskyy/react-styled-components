@@ -15,7 +15,10 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const theme = {}
+const theme = {
+  primaryColor: '#f8049c', 
+  secondaryColor: '#fdd54f'
+}
 
 function App() {
   return (
