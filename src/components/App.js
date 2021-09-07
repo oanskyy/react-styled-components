@@ -2,6 +2,7 @@ import React from 'react'
 import {createGlobalStyle, ThemeProvider} from 'styled-components'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
+import { Button } from './common'
 import Home from 'components/pages/Home'
 import Login from 'components/pages/Login'
 
@@ -24,12 +25,18 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      
       <BrowserRouter>
         <Switch> 
           <Route path="/"><Home /></Route>
           <Route path="/login"><Login /></Route>
+          
         </Switch>
       </BrowserRouter>
+      <Button>click</Button>
+      <Button>Primary</Button>
+      {/* pass props to our btn */}
+      <Button secondary>Secondary</Button>
     </ ThemeProvider>
   );
 }
