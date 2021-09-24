@@ -1,10 +1,10 @@
 import React from 'react' 
-// import {PageLayout} from 'components/common/PageLayout'
+import {PageLayout} from 'components/common/PageLayout'
 
 export default function Login() { 
     return ( 
-        <div>
+        <PageLayout>
             login from login.js
-        </div>
+        </PageLayout>
     )
 }
