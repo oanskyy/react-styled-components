@@ -8,12 +8,20 @@ import Home from 'components/pages/Home'
 import Login from 'components/pages/Login'
 
 const GlobalStyle = createGlobalStyle`
+  * { 
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
   body { 
     min-height: 100vh;
     margin: 0; 
     color: black; 
-    font-family: 'Kaushan Script'
+    font-family: 'Open Sans'; 
   }
+  a { 
+      font-family: 'Kaushan Script'; 
+    }
 `
 
 const theme = {
