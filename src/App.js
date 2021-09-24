@@ -28,14 +28,16 @@ function App() {
       
       <BrowserRouter>
         <Switch> 
-          <Route path="/"><Home /></Route>
+          
           <Route path="/login"><Login /></Route>
+          <Route path="/"><Home /></Route>
           
         </Switch>
       </BrowserRouter>
+
       <Button>click</Button>
       <Button disabled>Primary</Button>
-      
+
       {/* pass props to our btn */}
       <Button secondary>Secondary</Button>
       <Buttons text={'click me'}/>
