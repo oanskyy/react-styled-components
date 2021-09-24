@@ -2,7 +2,7 @@ import styled, {css} from 'styled-components';
 
 const Button = styled.button`
     display: inline-block; 
-    padding: 16px 32px; 
+    padding: 12px 28px;
     border-radius: 28px; 
     box-shadow: none; 
     border: none; 
@@ -14,19 +14,18 @@ const Button = styled.button`
     cursor: pointer;
     font-size: 1em; 
     font-weight: bold; 
-    ${props => props.large ? css`
-        padding: 10px; 
-        /* border-radius: 5px;  */
-        font-size: 1.5em;
-        ` : css`
-        padding: 8px; 
-        border-radius: 4px; 
-        font-size: 1em; 
-        `
-    };
     text-align: center;
     white-space: none;
     
+    /*  This is how we can add more than one property with just one interpolated function instead of adding for each single property (like the bg)  */
+    ${props => props.large ? css`
+        padding: 16px 32px; 
+        font-size: 1.5em;
+        ` : css`
+        padding: 12px 28px; 
+        font-size: 1em; 
+        `
+    };
 
     /* this is an attribute that we are passing in, not a prop in the traditional sense, we have this disabled state */
     &:disabled{ 
@@ -36,7 +35,7 @@ const Button = styled.button`
     &:hover { 
         background-color: #f8319a;
         position:relative;
-	    top:3px;
+	    top:1px;
     }
 `;
 
