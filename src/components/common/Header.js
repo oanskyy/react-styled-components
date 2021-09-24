@@ -14,22 +14,24 @@ const HeaderWrapper = styled.header`
     background-image: linear-gradient(to right, ${p => p.theme.primaryColor}, ${p => p.theme.secondaryColor});
     border-bottom: 3px solid ${p => p.theme.secondaryColor};
 `
-
 const Menu2 = styled.nav`
-    /* display: ${p => p.open ? 'block' : 'none'};  */
-    display: flex; 
-    position: relative; 
-    /* width: initial; 
-    left: initial; 
-    top: initial; */
-    /* border-bottom: 3px solid ${p => p.theme.secondaryColor};  */
-    margin: auto 0 auto auto; 
+    display: ${props => props.open ? 'block' : 'none'}; 
+    position: absolute; 
+    width: 100%; 
+    top: 60px; 
+    left: 0;
+    padding: 8px; 
+    border-bottom: 3px solid ${p => p.theme.secondaryColor};
     
-`
-
-const Menu = styled.nav`
-    display: flex; 
-    justify-content: flex-end;
+    @media (min-width: 768px) { 
+        display: flex; 
+        position: relative; 
+        border-bottom: none;
+        width: initial; 
+        left: initial; 
+        top: initial;
+        margin: auto 0 auto auto; 
+    }
 `
 
 // destructure from the PROPS the 'isActive' prop, the childred and we use the spread operator '...' for any other props
@@ -53,8 +55,6 @@ const StyledLink = styled(Link)`
 const MobileMenuIcon = styled.div`
     margin: auto 0 auto auto; 
     width: 25px; 
-    min-width: 25px;
-    padding: 5px;
 
     >div{ 
         height: 3px; 
@@ -62,7 +62,6 @@ const MobileMenuIcon = styled.div`
         margin: 5px 0; 
         width: 100%;
     }
-
     @media (min-width: 764px) { 
         display: none; 
     }
@@ -76,7 +75,8 @@ export function Header(){
 
     return ( 
         <HeaderWrapper>
-            <MobileMenuIcon onClick={() => setMenuOpen(s => !s)}>
+            {/* add event handler */}
+            <MobileMenuIcon onClick={() => setMenuOpen(state => !state)}>
                 <div />
                 <div />
                 <div />
@@ -91,14 +91,6 @@ export function Header(){
                 
                 {/* <Toggle></Toggle> */}
             </Menu2>
-            <Menu>
-            <StyledLink to="/" isActive={pathname === '/'}> 
-                Home 
-            </StyledLink>
-            <StyledLink to="/login" isActive={pathname === '/login'}>
-                Login
-            </StyledLink>
-            </Menu>
         </HeaderWrapper>
     )
 }
