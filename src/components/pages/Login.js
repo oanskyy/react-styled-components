@@ -1,7 +1,6 @@
 import React, {useState} from 'react' 
-import {PageLayout} from 'components/common/PageLayout'
+import {PageLayout, Input, PasswordInput} from 'components/common'
 import styled from 'styled-components'
-import { Input } from '../common'
 
 const Form = styled.form`
     width: 100%; 
@@ -24,21 +23,18 @@ export default function Login() {
     return ( 
         <PageLayout>
             <h1>login from login.js</h1>
-            <p>Chocolate cotton candy biscuit marzipan chocolate bar sweet shortbread cake gummies. Icing cheesecake biscuit candy marshmallow cake sugar plum. Jelly-o macaroon cheesecake jelly chocolate soufflé shortbread. Sesame snaps cupcake gummies croissant topping marshmallow brownie candy canes bear claw. Shortbread brownie jujubes marshmallow biscuit candy canes gummies.</p>
             <Form>
                 <Input 
                 type="text" 
+                placeholder="Username" 
                 value={formFields.username} 
                 onChange={handleInputChange} 
                 name="username" 
-                placeholder="Username" 
                 />
-                <Input 
-                type="password" 
+                <PasswordInput 
                 value={formFields.password} 
                 onChange={handleInputChange} 
                 name="password" 
-                placeholder="Password" 
                 />
             </Form>
         </PageLayout>
