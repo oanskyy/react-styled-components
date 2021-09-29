@@ -1,5 +1,5 @@
-import React, {useState} from 'react' 
-import {PageLayout, Input, PasswordInput} from 'components/common'
+import React, {useEffect, useState} from 'react' 
+import {PageLayout, Input, PasswordInput, Button} from 'components/common'
 import styled from 'styled-components'
 
 const Form = styled.form`
@@ -11,8 +11,11 @@ const Form = styled.form`
     border-radius: 4px;
 `
 
+let timeout;
+
 export default function Login() { 
-    const [formFields, setFormFields] = useState({username: '', password: ''})
+    const [formFields, setFormFields] = useState({username: '', password: ''}); 
+    const [loading, setLoading] = useState(false)
 
     function handleInputChange(e) { 
         e.persist();
@@ -21,10 +24,29 @@ export default function Login() {
             [e.target.name]: e.target.value
         }))
     }
+
+    function handleSubmit(e){ 
+        // this is used to prevent the default action of submit, because we don't actually want to submit the form here OR the page to refresh
+        e.preventDefault();
+        setLoading(true); 
+        timeout = setTimeout(() => { 
+            setLoading(false);
+        }, 2000);
+    }
+
+    // [] with useEffect hook we need to pass in an empty array, so this will only run when the component mounts. 
+    useEffect(() => { 
+        return ()=> { 
+            if(timeout){ 
+                clearTimeout(timeout);
+            }
+        }
+    }, [])
+
     return ( 
         <PageLayout>
             <h1>login from login.js</h1>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Input 
                 type="text" 
                 placeholder="Username" 
@@ -37,6 +59,17 @@ export default function Login() {
                 onChange={handleInputChange} 
                 name="password" 
                 />
+
+                <Button type='submit' disabled={loading}>
+                    {loading ? 'Loading...' : 'Login'}
+                </Button>
+
+                {!loading && 
+                <Button type='button' secondary>
+                    Register
+                </Button>
+                }
+
             </Form>
         </PageLayout>
     )

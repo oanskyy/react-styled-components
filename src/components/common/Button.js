@@ -18,8 +18,9 @@ const Button = styled.button`
     white-space: none;
     
     /*  This is how we can add more than one property with just one interpolated function instead of adding for each single property (like the bg)  */
+
     ${props => props.large ? css`
-        padding: 16px 32px; 
+        padding: 16px 32px;
         font-size: 1.5em;
         ` : css`
         padding: 12px 28px; 
@@ -29,7 +30,7 @@ const Button = styled.button`
 
     /* this is an attribute that we are passing in, not a prop in the traditional sense, we have this disabled state */
     &:disabled{ 
-        background: #eee; 
+        background-color: #eee; 
         color: #666;
     }
     &:hover { 

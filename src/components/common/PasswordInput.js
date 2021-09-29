@@ -20,7 +20,7 @@ border-bottom-right-radius: 0;
 `
 
 const ToggleButton = styled.div`
-    /* height: 40px; */
+    height: 40px;
     display: flex; 
     padding: 8px; 
     border: 1px solid #ccc; 
@@ -40,7 +40,7 @@ export function PasswordInput(props) {
     return ( 
         <>
             <PasswordInputWrapper>
-                <PasswordInputStyled {...props} />
+                < PasswordInputStyled {...props} />
                 <ToggleButton onClick={() => setShowPassword(s => !s)}> 
                 
                     {showPassword ? 'Hide' : 'Show'} 
