@@ -8,6 +8,7 @@ const Form = styled.form`
     background-color: #fff; 
     border: 1px solid #eee; 
     padding: 16px; 
+    border-radius: 4px;
 `
 
 export default function Login() { 
