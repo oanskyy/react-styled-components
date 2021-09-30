@@ -22,7 +22,6 @@ const Menu = styled.nav`
     left: 0;
     padding: 8px; 
     border-bottom: 3px solid ${props => props.theme.secondaryColor};
-    background: ${props => props.theme.bodyBackgroundColor}; 
     
     @media (min-width: 768px) { 
         display: flex; 
