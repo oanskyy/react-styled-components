@@ -1,5 +1,21 @@
 import styled, {css} from 'styled-components';
 
+// refactor styles into a function, if it becomes too messy and have all your logic within that function there
+// destructure the PROP we want, which is the 'large' PROP
+const largeStyles = ({large}) => { 
+    if(large) { 
+        return css`
+            padding: 16px 32px;
+            font-size: 1.5em;
+            ` 
+    } else { 
+        return css`
+            padding: 12px 28px; 
+            font-size: 1em; 
+            `
+    }
+}
+
 const Button = styled.button`
     display: inline-block; 
     padding: 12px 28px;
@@ -18,15 +34,16 @@ const Button = styled.button`
     white-space: none;
     
     /*  This is how we can add more than one property with just one interpolated function instead of adding for each single property (like the bg)  */
-
-    ${props => props.large ? css`
+    /* ${props => props.large ? css`
         padding: 16px 32px;
         font-size: 1.5em;
         ` : css`
         padding: 12px 28px; 
         font-size: 1em; 
         `
-    };
+    }; */
+    /* so NOW instead of the above we can just interpolate the largeStyles function within here*/ 
+    ${largeStyles}
 
     /* this is an attribute that we are passing in, not a prop in the traditional sense, we have this disabled state */
     &:disabled{ 
