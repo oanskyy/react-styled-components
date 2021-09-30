@@ -2,8 +2,6 @@ import React, {useState} from 'react'
 import {createGlobalStyle, ThemeProvider} from 'styled-components'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
-import { Button } from './components/common/Button'
-import Buttons from './components/common/Buttons'
 import Home from 'components/pages/Home'
 import Login from 'components/pages/Login'
 import LightTheme from 'themes/light'
@@ -45,13 +43,6 @@ function App() {
           
         </Switch>
       </BrowserRouter>
-
-      <Button>click</Button>
-      <Button disabled>Primary</Button>
-
-      {/* pass props to our btn */}
-      <Button secondary>Secondary</Button>
-      <Buttons text={'click me'}/>
     </ ThemeProvider>
   );
 }
