@@ -11,8 +11,8 @@ const HeaderWrapper = styled.header`
     display: flex;
     flex-direction: column;
     padding: 0 16px; 
-    background-image: linear-gradient(to right, ${p => p.theme.primaryColor}, ${p => p.theme.secondaryColor});
-    border-bottom: 3px solid ${p => p.theme.secondaryColor};
+    background-image: linear-gradient(to right, ${props => props.theme.primaryColor}, ${props => props.theme.secondaryColor});
+    border-bottom: 3px solid ${props => props.theme.secondaryColor};
 `
 const Menu2 = styled.nav`
     display: ${props => props.open ? 'block' : 'none'}; 
