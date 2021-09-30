@@ -9,6 +9,12 @@ const Form = styled.form`
     border: 1px solid #eee; 
     padding: 16px; 
     border-radius: 4px;
+
+    /* Referencing a styled component within another styled component */
+    /*  this is the child selector '>' */
+    >${Button}:first-of-type{ 
+        margin-right: 40px;
+    }
 `
 
 let timeout;
