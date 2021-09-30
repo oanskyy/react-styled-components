@@ -1,7 +1,7 @@
 import React, {useState} from 'react' 
 import styled from 'styled-components'
 import {Link as ReactRouterDomLink, useLocation } from 'react-router-dom' 
-// import {Toggle} from './Toggle'
+import {Toggle} from './Toggle'
 
 const HeaderWrapper = styled.header`
     position: fixed; 
@@ -89,7 +89,7 @@ export function Header(){
                 Login
                 </StyledLink>
                 
-                {/* <Toggle></Toggle> */}
+                <Toggle />
             </Menu2>
         </HeaderWrapper>
     )
