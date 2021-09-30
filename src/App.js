@@ -18,7 +18,8 @@ const GlobalStyle = createGlobalStyle`
   body { 
     min-height: 100vh;
     margin: 0; 
-    color: black; 
+    color: ${props => props.theme.bodyFontColor}; 
+    background: ${props => props.theme.bodyBackgroundColor};
     font-family: 'Open Sans'; 
   }
   a { 

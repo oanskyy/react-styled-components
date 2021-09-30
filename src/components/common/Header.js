@@ -14,14 +14,15 @@ const HeaderWrapper = styled.header`
     background-image: linear-gradient(to right, ${props => props.theme.primaryColor}, ${props => props.theme.secondaryColor});
     border-bottom: 3px solid ${props => props.theme.secondaryColor};
 `
-const Menu2 = styled.nav`
+const Menu = styled.nav`
     display: ${props => props.open ? 'block' : 'none'}; 
     position: absolute; 
     width: 100%; 
     top: 60px; 
     left: 0;
     padding: 8px; 
-    border-bottom: 3px solid ${p => p.theme.secondaryColor};
+    border-bottom: 3px solid ${props => props.theme.secondaryColor};
+    background: ${props => props.theme.bodyBackgroundColor}; 
     
     @media (min-width: 768px) { 
         display: flex; 
@@ -49,7 +50,7 @@ const StyledLink = styled(Link)`
     text-align: center;
     text-decoration: none;
     font-weight: ${p => p.isActive ? 'bold' : 'normal'};
-    color: ${p => p.theme.bodyFontColor};
+    color: ${props => props.theme.bodyFontColor};
 `
 
 const MobileMenuIcon = styled.div`
@@ -58,7 +59,7 @@ const MobileMenuIcon = styled.div`
 
     >div{ 
         height: 3px; 
-        background: black; 
+        background: ${props => props.theme.bodyFontColor}; 
         margin: 5px 0; 
         width: 100%;
     }
@@ -82,7 +83,7 @@ export function Header(){
                 <div />
                 <div />
             </MobileMenuIcon>
-            <Menu2 open={menuOpen}>
+            <Menu open={menuOpen}>
                 <StyledLink to="/" isActive={pathname === '/'}> 
                 Home 
                 </StyledLink>
@@ -91,7 +92,7 @@ export function Header(){
                 </StyledLink>
                 
                 <Toggle isActive={id === 'dark'} onToggle={setTheme} />
-            </Menu2>
+            </Menu>
         </HeaderWrapper>
     )
 }
