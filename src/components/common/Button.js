@@ -1,4 +1,5 @@
-import styled, {css} from 'styled-components';
+import styled, {css} from 'styled-components'; 
+import PropTypes from 'prop-types'
 
 // refactor styles into a function, if it becomes too messy and have all your logic within that function there
 // destructure the PROP we want, which is the 'large' PROP
@@ -56,5 +57,11 @@ const Button = styled.button`
 	    top:1px;
     }
 `;
+
+// this is like an interface in typescript. we double check our type safety so we can't pass in anything other than what we specify for that PropType
+Button.propType = { 
+    large: PropTypes.bool, 
+    secondary: PropTypes.bool
+}
 
 export {Button};
